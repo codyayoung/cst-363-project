@@ -1,2 +1,2 @@
 # cst-363-project
-A Hylian recipe database. 
+More hearts, please. 
