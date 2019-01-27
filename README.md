@@ -1,2 +1,2 @@
 # cst-363-project
-More hearts, please. 
+More EPs, please. 
