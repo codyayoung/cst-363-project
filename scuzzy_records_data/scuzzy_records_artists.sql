@@ -22,8 +22,16 @@ USE `scuzzy_records`;
 --
 
 
+<<<<<<< HEAD
 
 DROP IF EXISTS 'artists';
+=======
+<<<<<<< HEAD
+DROP IF EXISTS 'artists';
+=======
+DROP TABLE IF EXISTS 'artists';
+>>>>>>> master
+>>>>>>> master
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `artists` (
