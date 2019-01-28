@@ -21,11 +21,8 @@ USE `scuzzy_records`;
 -- Table structure for table `performances`
 --
 
-<<<<<<< HEAD
-DROP TABLE IF EXISTS 'performances';
-=======
 
->>>>>>> master
+DROP IF EXISTS 'performances';
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `performances` (
