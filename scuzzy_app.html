@@ -6,24 +6,24 @@
 		<form action="/cgi-bin/scuzzy_app.py" method = "post">
 			<select name="queries">
 				<optgroup label="Review current data">
-					<option value="artists">Artists</option>
-					<option value="venues">Venues</option>
-					<option value="sales">Sales numbers</option>
-					<option value="performances">Performances</option>
+					<option value="print artists">Artists</option>
+					<option value="print venues">Venues</option>
+					<option value="print record_sales">Sales numbers</option>
+					<option value="print performances">Performances</option>
 				</optgroup>
 				<optgroup label="Add data">
-					<option value="add_artist">Artist</option>
-					<option value="add_performance">Performance</option>
-					<option value="add_sale">Sale</option>
+					<option value="add artists">Artist</option>
+					<option value="add performances">Performance</option>
+					<option value="add record_sales">Sale</option>
 				</optgroup>
 				<optgroup label="Remove data">
-					<option value="remove_artist">Artist</option>
-					<option value="remove_performance">Performance</option>
+					<option value="remove artists">Artist</option>
+					<option value="remove performances">Performance</option>
 				</optgroup>
 				<optgroup label="Update data">
-					<option value="update_artist">Artist</option>
-					<option value="update_performance">Performance</option>
-					<option value="update_venue">Venue</option>
+					<option value="update artists">Artist</option>
+					<option value="update performances">Performance</option>
+					<option value="update venues">Venue</option>
 				</optgroup>
 			<input type="submit" value="submit" name="Submit"/>
 		</form>
