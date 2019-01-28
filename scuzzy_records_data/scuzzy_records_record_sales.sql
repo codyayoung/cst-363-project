@@ -20,8 +20,6 @@ USE `scuzzy_records`;
 --
 -- Table structure for table `record_sales`
 --
-
-DROP IF EXISTS 'record_sales';
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `record_sales` (
