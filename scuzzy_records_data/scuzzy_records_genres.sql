@@ -22,7 +22,11 @@ USE `scuzzy_records`;
 --
 
 
+<<<<<<< HEAD
 DROP IF EXISTS 'genres';
+=======
+DROP TABLE IF EXISTS 'genres';
+>>>>>>> master
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `genres` (
