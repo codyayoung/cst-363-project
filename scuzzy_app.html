@@ -27,7 +27,7 @@
 				</optgroup>
 			<input type="button" onclick="updateForm()" value="submit" name="Submit"/>
 		</form>
-		<form id = "dynamic_form" action="/cgi-bin/scuzzy_app.py">
+		<form id = "dynamic_form" action="/cgi-bin/scuzzy_app.py" method="post">
 		</form>
 		<script>
 			function updateForm() {
@@ -57,107 +57,141 @@
 				else if (selection[1] == "record_sales") {
 					salesValues(form, selection[0]);
 				}
+				var queryType = selection[0] + ' ' + selection[1];
 				var submitButton = document.createElement("input");
 				submitButton.setAttribute("type", "submit");
-				submitButton.setAttribute("value", "submit");
-				submitButton.setAttribute("name", "Submit");
+				submitButton.setAttribute("value", "Submit");
+				submitButton.setAttribute("name", queryType);
 				form.appendChild(submitButton);
 			}
+			<!--Function to handle the artist queries-->
 			function artistValues(field, operation){
+				<!--Artist field for updating-->
 				if (operation == "update") {
 					var artistUpdate = document.createElement("input");
 					artistUpdate.setAttribute("type", "text");
+					artistUpdate.setAttribute("name", "update");
 					var artistUpdateText = document.createTextNode("Artist to update: ");
 					field.appendChild(artistUpdateText);
 					field.appendChild(artistUpdate);
 					field.appendChild(document.createElement("BR"));
 				}
+				<!--Artist field for the artist name-->
 				var nameInput = document.createElement("input");
 				nameInput.setAttribute("type", "text");
+				nameInput.setAttribute("name", "name");
 				var nameText = document.createTextNode("Artist name: ");
 				field.appendChild(nameText);
 				field.appendChild(nameInput);
 				field.appendChild(document.createElement("BR"));
 				if (operation !== "remove") {
+					<!--Artist field for the genre of the artist-->
 					var genreInput = document.createElement("input");
 					genreInput.setAttribute("type", "text");
+					genreInput.setAttribute("name", "genre");
 					var genreText = document.createTextNode("Genre: ");
 					field.appendChild(genreText);
 					field.appendChild(genreInput);
 					field.appendChild(document.createElement("BR"));
 				}
 			}
+			<!--Function that handles performance queries-->
 			function performValues(field, operation) {
+				<!--Performance field for updating-->
 				if (operation == "update") {
 					var performUpdate = document.createElement("input");
 					performUpdate.setAttribute("type", "text");
+					performUpdate.setAttribute("name", "update");
 					var performUpdateText = document.createTextNode("Performance to update: ");
 					field.appendChild(performUpdateText);
 					field.appendChild(performUpdate);
 					field.appendChild(document.createElement("BR"));
-				}				
+				}
+				<!--Performance field for the name-->
 				var nameInput = document.createElement("input");
 				nameInput.setAttribute("type", "text");
+				nameInput.setAttribute("name", "name");
 				var nameText = document.createTextNode("Performace name: ");
 				field.appendChild(nameText);
 				field.appendChild(nameInput);
 				field.appendChild(document.createElement("BR"));
+				<!--Performance field for the date of event-->
 				var dateInput = document.createElement("input");
 				dateInput.setAttribute("type", "text");
+				dateInput.setAttribute("name", "date");
 				var dateText = document.createTextNode("Date of performance: ");
 				field.appendChild(dateText);
 				field.appendChild(dateInput);
 				field.appendChild(document.createElement("BR"));
 				if (operation !== "remove") {
+					<!--Performance field for the performing artist-->
 					var artistInput = document.createElement("input");
 					artistInput.setAttribute("type", "text");
+					artistInput.setAttribute("name", "artist");
 					var artistText = document.createTextNode("Performing artist: ");
 					field.appendChild(artistText);
 					field.appendChild(artistInput);
 					field.appendChild(document.createElement("BR"));
+					<!--Performance field for the cost of the event-->
 					var costInput = document.createElement("input");
 					costInput.setAttribute("type", "text");
+					costInput.setAttribute("name", "cost");
 					var costText = document.createTextNode("Cost of performance: ");
 					field.appendChild(costText);
 					field.appendChild(costInput);
 					field.appendChild(document.createElement("BR"));
+					<!--Performance field for the venue of the event-->
 					var venueInput = document.createElement("input");
 					venueInput.setAttribute("type", "text");
+					venueInput.setAttribute("name", "venue");
 					var venueText = document.createTextNode("Venue name: ");
 					field.appendChild(venueText);
 					field.appendChild(venueInput);
 					field.appendChild(document.createElement("BR"));
 				}
 			}
+			
+			<!--Function to retrieve user input for venue queries-->
+			
 			function venueValues(field, operation) {
+				<!--Venue field for update-->
 				if (operation == "update") {
 					var venueUpdate = document.createElement("input");
 					venueUpdate.setAttribute("type", "text");
+					venueUpdate.setAttribute("name", "update");
 					var venueUpdateText = document.createTextNode("Venue to update: ");
 					field.appendChild(venueUpdateText);
 					field.appendChild(venueUpdate);
 					field.appendChild(document.createElement("BR"));
-				}				
+				}
+				<!--Venue field for city name-->
 				var cityInput = document.createElement("input");
 				cityInput.setAttribute("type", "text");
+				cityInput.setAttribute("name", "city");
 				var cityText = document.createTextNode("City: ");
 				field.appendChild(cityText);
 				field.appendChild(cityInput);
 				field.appendChild(document.createElement("BR"));
+				<!--Venue field for state name-->
 				var stateInput = document.createElement("input");
 				stateInput.setAttribute("type", "text");
+				stateInput.setAttribute("name", "state");
 				var stateText = document.createTextNode("State: ");
 				field.appendChild(stateText);
 				field.appendChild(stateInput);
-				field.appendChild(document.createElement("BR"));				
+				field.appendChild(document.createElement("BR"));
+				<!--Venue field for total capacity-->
 				var capacityInput = document.createElement("input");
 				capacityInput.setAttribute("type", "text");
+				capacityInput.setAttribute("name", "capacity");
 				var capacityText = document.createTextNode("Capacity: ");
 				field.appendChild(capacityText);
 				field.appendChild(capacityInput);
 				field.appendChild(document.createElement("BR"));
+				<!--Venue field for the cost-->
 				var costInput = document.createElement("input");
 				costInput.setAttribute("type", "text");
+				costInput.setAttribute("name", "cost");
 				var costText = document.createTextNode("Cost: ");
 				field.appendChild(costText);
 				field.appendChild(costInput);
@@ -170,6 +204,7 @@
 				<!--Sales field for artist-->
 				var artistInput = document.createElement("input");
 				artistInput.setAttribute("type", "text");
+				artistInput.setAttribute("name", "artist");
 				var artistText = document.createTextNode("Artist name: ");
 				field.appendChild(artistText);
 				field.appendChild(artistInput);
@@ -177,6 +212,7 @@
 				<!--Sales field for date-->
 				var dateInput = document.createElement("input");
 				dateInput.setAttribute("type", "text");
+				dateInput.setAttribute("name", "date");
 				var dateText = document.createTextNode("Date of purchase: ");
 				field.appendChild(dateText);
 				field.appendChild(dateInput);
@@ -184,6 +220,7 @@
 				<!--Sales field for total of the sale-->
 				var totalInput = document.createElement("input");
 				totalInput.setAttribute("type", "text");
+				totalInput.setAttribute("name", "total");
 				var totalText = document.createTextNode("Total of sale: ");
 				field.appendChild(totalText);
 				field.appendChild(totalInput);
@@ -191,6 +228,7 @@
 				<!--Sales field for the city where purchased-->
 				var cityInput = document.createElement("input");
 				cityInput.setAttribute("type", "text");
+				cityInput.setAttribute("name", "city");
 				var cityText = document.createTextNode("City: ");
 				field.appendChild(cityText);
 				field.appendChild(cityInput);
@@ -198,6 +236,7 @@
 				<!--Sales field for the state where purchased-->
 				var stateInput = document.createElement("input");
 				stateInput.setAttribute("type", "text");
+				stateInput.setAttribute("name", "state");
 				var stateText = document.createTextNode("State: ");
 				field.appendChild(stateText);
 				field.appendChild(stateInput);
