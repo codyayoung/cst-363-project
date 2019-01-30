@@ -19,7 +19,7 @@ def artist_print(values):
 	if len(values) < 1:
 		return print_artists
 	if "name" in values:
-		print_artists += " WHERE a.artist_name LIKE '{}';".format(values["name"])
+		print_artists += " WHERE a.artist_name LIKE '%{}%';".format(values["name"])
 		return print_artists
 	elif "genre" in values:
 		print_artists += " WHERE g.genre_name = '{}'".format(values["genre"])
