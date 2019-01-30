@@ -102,7 +102,7 @@ if len(status_prompt) > 0:
 
 if len(alter_sql) > 0:
 	alter_cursor.execute(alter_sql)
-"""
+
 cursor.execute(sql)
 print('<table border="1"><tr>')
 for label in table_headers:
@@ -114,8 +114,7 @@ for item in row:
 	for value in item:
 		print('<td>{} '.format(value))
 	print('</tr>')
-"""
-print("<br>{}<br>".format(sql))
+#print("<br>{}<br>".format(sql))
 #print ("{}<br>{}<br>".format(operation, table))
 #print("{}".format(user_query))
 print("<p><a href=\"/scuzzy_app.html\" class=\"button\">Main Menu</a></p>")
