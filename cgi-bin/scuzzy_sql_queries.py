@@ -109,7 +109,7 @@ def sale_add(values):
 ##############
 
 def performance_print(values):
-	pass
+	return False
 
 def performance_add(values):
 	pass
