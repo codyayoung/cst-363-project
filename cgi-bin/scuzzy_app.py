@@ -116,7 +116,9 @@ else:
 
 #Check if add, remove, or update queries were successful
 if alter_sql:
-	status_prompt = "<h1>{} {}ed successfully.</h1><br>".format(table, operation)
+	if operation == "add":
+		operation += 'e'
+	status_prompt = "<h1>{} {}d successfully.</h1><br>".format(table, operation)
 	alter_cursor.execute(alter_sql)
 if alter_sql == False:
 	status_prompt = "<h1>{} failed to {}. Please fill in all fields.</h1><br>".format(table, operation)
