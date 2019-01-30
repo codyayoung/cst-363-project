@@ -18,7 +18,7 @@ USE `Scuzzy_Records` ;
 -- Table `Scuzzy_Records`.`genres`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Scuzzy_Records`.`genres` (
-  `genre_id` INT NOT NULL,
+  `genre_id` INT NOT NULL AUTO_INCREMENT,
   `genre_name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`genre_id`))
 ENGINE = InnoDB;
@@ -28,7 +28,7 @@ ENGINE = InnoDB;
 -- Table `Scuzzy_Records`.`artists`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Scuzzy_Records`.`artists` (
-  `artist_id` INT NOT NULL,
+  `artist_id` INT NOT NULL AUTO_INCREMENT,
   `artist_name` VARCHAR(45) NOT NULL,
   `artist_genre_id` INT NOT NULL,
   PRIMARY KEY (`artist_id`),
@@ -45,7 +45,7 @@ ENGINE = InnoDB;
 -- Table `Scuzzy_Records`.`record_sales`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Scuzzy_Records`.`record_sales` (
-  `sales_id` INT NOT NULL,
+  `sales_id` INT NOT NULL AUTO_INCREMENT,
   `artist_id` INT NOT NULL,
   `sales_date` DATETIME NOT NULL,
   `sales_total` DECIMAL(9,2) NOT NULL,
@@ -65,7 +65,7 @@ ENGINE = InnoDB;
 -- Table `Scuzzy_Records`.`venues`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Scuzzy_Records`.`venues` (
-  `venue_id` INT NOT NULL,
+  `venue_id` INT NOT NULL AUTO_INCREMENT,
   `venue_city` VARCHAR(45) NOT NULL,
   `venue_state` VARCHAR(45) NOT NULL,
   `venue_capacity` INT NOT NULL,
@@ -78,7 +78,7 @@ ENGINE = InnoDB;
 -- Table `Scuzzy_Records`.`performances`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Scuzzy_Records`.`performances` (
-  `performance_id` INT NOT NULL,
+  `performance_id` INT NOT NULL AUTO_INCREMENT,
   `performance_name` VARCHAR(45) NOT NULL,
   `performing_artist_id` INT NOT NULL,
   `performance_cost` DECIMAL(9,2) NOT NULL,
