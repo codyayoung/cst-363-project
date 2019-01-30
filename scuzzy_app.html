@@ -1,3 +1,9 @@
+<!--SCSI LOGIC-->
+<!--Nathan Warren-Acord-->
+<!--Cody Young-->
+<!--Abby Packham-->
+<!--CST 363 Databases - Project 1 HTML Main Page-->
+
 <!DOCTYPE html>
 <html>
 	<body>
@@ -46,6 +52,12 @@
 				}
 				header.innerHTML = headerText;
 				form.appendChild(header);
+				if (selection[0] == "print") {
+					var blankPrompt = document.createElement("H3");
+					var promptText = "Leave all fields blank to print entire table.";
+					blankPrompt.innerHTML = promptText;
+					form.appendChild(blankPrompt);
+				}
 				if (selection[1] == "artists") {
 					artistValues(form, selection[0]);
 				}
@@ -103,7 +115,7 @@
 					var performUpdate = document.createElement("input");
 					performUpdate.setAttribute("type", "text");
 					performUpdate.setAttribute("name", "update");
-					var performUpdateText = document.createTextNode("Performance to update: ");
+					var performUpdateText = document.createTextNode("Performance to update (old name if changing): ");
 					field.appendChild(performUpdateText);
 					field.appendChild(performUpdate);
 					field.appendChild(document.createElement("BR"));
@@ -112,7 +124,7 @@
 				var nameInput = document.createElement("input");
 				nameInput.setAttribute("type", "text");
 				nameInput.setAttribute("name", "name");
-				var nameText = document.createTextNode("Performace name: ");
+				var nameText = document.createTextNode("Performance name: ");
 				field.appendChild(nameText);
 				field.appendChild(nameInput);
 				field.appendChild(document.createElement("BR"));
@@ -145,7 +157,7 @@
 					var venueInput = document.createElement("input");
 					venueInput.setAttribute("type", "text");
 					venueInput.setAttribute("name", "venue");
-					var venueText = document.createTextNode("Venue name: ");
+					var venueText = document.createTextNode("Venue ID: ");
 					field.appendChild(venueText);
 					field.appendChild(venueInput);
 					field.appendChild(document.createElement("BR"));
