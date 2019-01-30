@@ -37,7 +37,7 @@ print("""<html><head><style>a.button {
 print("<body>")
 
 cnx = mysql.connector.connect(user='root',
-                                password='65-Ariaismyhomegirl',
+                                password='',
                                 database='scuzzy_records',
                                 host='127.0.0.1')
 
