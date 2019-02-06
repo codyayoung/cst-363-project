@@ -68,3 +68,17 @@ JOIN dim_artists a
 WHERE e.event_type = 'record sale'
 GROUP BY Artist
 ORDER BY Perc_Of_Record_Sale_Profit DESC;
+
+-- Overall profit to cost ratio for each performance
+SELECT a.artist_name AS Artist, a.artist_id AS Artist_ID,
+	TRUNCATE((f.amount / f.total), 2) AS Profit_Cost_Ratio
+FROM fact_artist_stat f 
+JOIN dim_events e ON
+	f.event_id = e.event_id
+JOIN dim_artists a ON
+	f.artist_id = a.artist_id
+WHERE e.event_type = 'performance'
+GROUP BY Artist
+ORDER BY Profit_Cost_Ratio ASC;
+
+
